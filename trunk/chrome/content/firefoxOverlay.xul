@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://lyricsfinder/locale/lyricsSidebar.dtd">
+<overlay id="emptySidebarOverlay"
+				 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<menupopup id="viewSidebarMenu">
+		<menuitem key="key_openLyricsSidebar" observes="viewLyricsSidebar" />
+	</menupopup>
+
+	<keyset id="mainKeyset">
+		<key id="key_openLyricsSidebar" command="viewLyricsSidebar"
+				 key="&openLyricsSidebar.commandkey;"
+				 modifiers="&openLyricsSidebar.modifierskey;" />
+	</keyset>
+
+	<broadcasterset id="mainBroadcasterSet">
+		<broadcaster id="viewLyricsSidebar"
+								 label="&lyricsSidebar.title;"
+								 autocheck="false"
+								 type="checkbox"
+								 group="sidebar"
+								 sidebarurl="chrome://lyricsfinder/content/lyricsSidebar.xul"
+								 sidebartitle="&lyricsSidebar.title;"
+								 oncommand="toggleSidebar('viewLyricsSidebar');" />
+	</broadcasterset>
+</overlay>
