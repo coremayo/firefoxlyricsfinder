@@ -1,0 +1,3 @@
+content lyricsfinder chrome/content/
+locale  lyricsfinder en-US chrome/locale/en-US/
+overlay chrome://browser/content/browser.xul    chrome://lyricsfinder/content/firefoxOverlay.xul

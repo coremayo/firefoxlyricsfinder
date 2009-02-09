@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css" ?>
+<!DOCTYPE page SYSTEM "chrome://lyricsfinder/locale/lyricsSidebar.dtd">
+
+<page id="lyricsSideBar" title="&lyricsSidebar.title;"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" >
+  <vbox>
+    <lable id="titleLabel" value="&lyricsSidebar.title;" />
+    <label id="songLabel" value="Ramblin Wreck" />
+    <label id="artistLabel" value="George P. Burdell" />
+    <label id="lyricsLabel" value="I'm a ramblin wreck..." />
+  </vbox>
+</page>
