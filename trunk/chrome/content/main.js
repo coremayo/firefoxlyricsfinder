@@ -66,11 +66,11 @@ function AZLyricSource(songName, artistName)  {
 	
 		searchURL = ('http://search.azlyrics.com/search.php?q=' + artistName + ' ' + songName).replace(/ /g, '+');
 		search = getPage(searchURL);
-		resultMatch = (new RegExp("<a href=\\\"([\\\S]+)\\\" TARGET=\\\"_blank\\\">","i")).exec(search);
+		resultMatch = (new RegExp("<a href=\"([\S]+)\" TARGET=\"_blank\">","mi")).exec(search);
 		if(resultMatch) {
 			pageURL = $1;
 			page = getPage(pageURL);
-			match = /<!-- END OF RINGTONE 1 -->(.*)<!-- RINGTONE 2 -->/.exec(page);
+			match = (new RegExp("<!-- END OF RINGTONE 1 -->(.*)<!-- RINGTONE 2 -->", "mi")).exec(page);
 			if(match) {
 				this.lyrics = $1;
 				this.sourceURL = pageURL;
