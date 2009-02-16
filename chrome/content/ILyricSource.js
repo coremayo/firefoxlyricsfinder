@@ -1,5 +1,5 @@
 //Super class of AZLyricSource and DarkLyricSource
-
+//Do not instantiate directly.
 
 function ILyricSource(songName, artistName) {
 	this.songName = songName;
