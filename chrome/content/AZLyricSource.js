@@ -7,7 +7,7 @@ function AZLyricSource(songName, artistName)  {
 		searchURL = ('http://search.azlyrics.com/search.php?q=' + artistName + ' ' + songName)
 			.replace(/ /g, '+');
 		search = getPage(searchURL);
-		resultMatch = /<a href=\"([^\"])+\" TARGET=\"_blank\">/.exec(search);
+		resultMatch = (new RegExp("<a href=\"([^\"])+\" TARGET=\"_blank\">")).exec(search);
 		if(resultMatch) {
 			pageURL = $1;
 			page = getPage(pageURL);
