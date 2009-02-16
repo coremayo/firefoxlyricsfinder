@@ -5,7 +5,7 @@
 
 <page id="lyricsSideBar" title="&lyricsSidebar.title;"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" >
-	<script src="ILyricsSource.js" type="application/x-javascript"/>
+	<script src="main.js" type="application/x-javascript"/>
   <vbox>
     <lable id="lyricsTitleLabel" value="&lyricsSidebar.title;" />
     <label id="artistNameLabel" value="Artist Name" control="artistNameTextbox" />
