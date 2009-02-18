@@ -66,6 +66,7 @@ function AZLyricSource(songName, artistName)  {
 	
 		searchURL = ('http://search.azlyrics.com/search.php?q=' + artistName + ' ' + songName).replace(/ /g, '+');
 		search = getPage(searchURL);
+		alert('page length is: ' + search.length);
 		resultMatch = (new RegExp("<a href=\"([\S]+)\" TARGET=\"_blank\">","mi")).exec(search);
 		if(resultMatch) {
 			pageURL = $1;
@@ -96,12 +97,14 @@ AZLyricSource.method('getSourceURL', function () {
 
 
 
-// From http://www.rgagnon.com/jsdetails/js-0035.html
 function getPage(url) {
 	var request =  new XMLHttpRequest();
-	request.open("GET", url, false);
+	request.open('GET', url, false);
 	request.send(null);
-	
-	
-	return(request.responseText);
+	alert('status is: ' + request.readyState);
+	var tmpTxt = request.responseText;
+
+	alert('size of page is: ' + tmpTxt.length);
+	alert('first 10 chars are: ' + tmpTxt.substring(0,10));
+	return(tmpTxt);
 }
