@@ -26,8 +26,10 @@ ILyricSource.method('getSourceURL', function () {
 //			var splitString = tmpString.split("-",2);
 //			document.getElementById('artistNameLabel').setAttribute('value',alltrim(splitString[0]));
 //			document.getElementById('songTitleLabel').setAttribute('value',alltrim(splitString[1]));
-			var songTitle = getLastFMSongName();
-			var artistName = getLastFMSongArtist();
+			var songTitle = 'what it\'s like to be me';
+//			var songTitle = getLastFMSongName();
+			var artistName = 'britney spears';
+//			var artistName = getLastFMSongArtist();
 			var lyricSrc = new AZLyricSource(songTitle,artistName);
 			document.getElementById('artistNameLabel').setAttribute('value',artistName);
 			document.getElementById('songTitleLabel').setAttribute('value',songTitle);
@@ -66,13 +68,16 @@ function AZLyricSource(songName, artistName)  {
 	
 		searchURL = ('http://search.azlyrics.com/search.php?q=' + artistName + ' ' + songName).replace(/ /g, '+');
 		search = getPage(searchURL);
-		alert('page length is: ' + search.length);
-		resultMatch = (new RegExp("<a href=\"(\\S+)\" TARGET=\"_blank\">","mi")).exec(search);
+		regex = new RegExp("<a href=\"(\\S+)\" TARGET=\"_blank\">","mi");
+		resultMatch = regex.exec(search);
 		if(resultMatch) {
-			pageURL = $1;
+alert(resultMatch);
+			pageURL = regex.$1;
+alert('page url is: ' + pageURL);
 			page = getPage(pageURL);
 			match = (new RegExp("<!-- END OF RINGTONE 1 -->(.*)<!-- RINGTONE 2 -->", "mi")).exec(page);
 			if(match) {
+alert('second regex works');
 				this.lyrics = $1;
 				this.sourceURL = pageURL;
 			}
@@ -101,10 +106,6 @@ function getPage(url) {
 	var request =  new XMLHttpRequest();
 	request.open('GET', url, false);
 	request.send(null);
-	alert('status is: ' + request.readyState);
 	var tmpTxt = request.responseText;
-
-	alert('size of page is: ' + tmpTxt.length);
-	alert('first 10 chars are: ' + tmpTxt.substring(0,10));
 	return(tmpTxt);
 }
