@@ -4,7 +4,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>DivideByZero.LyricsFinder@example.net</em:id>
     <em:name>Lyrics Finder</em:name>
-    <em:version>0.1.20090216</em:version>
+    <em:version>0.1.20090219</em:version>
 		<em:creator>Team Divide by Zero</em:creator>
 		<em:contributor>Michael DeRosa</em:contributor>
 		<em:contributor>Thomas Faine</em:contributor>
