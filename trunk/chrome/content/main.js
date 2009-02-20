@@ -21,19 +21,12 @@ ILyricSource.method('getSourceURL', function () {
 					});
 // Assuming the current tab in firefox is some page on last.fm with a song playing, this function grabs the song title and artist from the title tag and sets the respective labels in the sidebar to those values.
 		function updateLyrics() {
-//			var tmpString = "";
-//			tmpString = parent.top.document.title;
-//			var splitString = tmpString.split("-",2);
-//			document.getElementById('artistNameLabel').setAttribute('value',alltrim(splitString[0]));
-//			document.getElementById('songTitleLabel').setAttribute('value',alltrim(splitString[1]));
-			var songTitle = 'what it\'s like to be me';
-//			var songTitle = getLastFMSongName();
-			var artistName = 'britney spears';
-//			var artistName = getLastFMSongArtist();
+			var songTitle = getLastFMSongName();
+			var artistName = getLastFMSongArtist();
 			var lyricSrc = new AZLyricSource(songTitle,artistName);
+			document.getElementById('lyricsTextbox').setAttribute('value',lyricSrc.lyrics);
 			document.getElementById('artistNameLabel').setAttribute('value',artistName);
 			document.getElementById('songTitleLabel').setAttribute('value',songTitle);
-			document.getElementById('lyricsTextbox').setAttribute('value',lyricSrc.getLyrics());
 			if(lyricSrc.hasLyrics())
 			alert('nope');
 		}
@@ -71,15 +64,17 @@ function AZLyricSource(songName, artistName)  {
 		regex = new RegExp("<a href=\"(\\S+)\" TARGET=\"_blank\">","mi");
 		resultMatch = regex.exec(search);
 		if(resultMatch) {
-alert(resultMatch);
-			pageURL = regex.$1;
-alert('page url is: ' + pageURL);
+		pageURL = resultMatch[1];
 			page = getPage(pageURL);
-			match = (new RegExp("<!-- END OF RINGTONE 1 -->(.*)<!-- RINGTONE 2 -->", "mi")).exec(page);
+			regex = new RegExp("<!-- END OF RINGTONE 1 -->([\\s\\S]*)<!-- RINGTONE 2 -->","mi");
+			match = regex.exec(page);
 			if(match) {
-alert('second regex works');
-				this.lyrics = $1;
+				this.lyrics = match[1].replace(/<.*>/g,'');
+				this.lyrics = this.lyrics.replace(/^\s*/,'');
 				this.sourceURL = pageURL;
+			}
+			else {
+alert('second regex doesn\'t works');
 			}
 		}
 		else {
@@ -87,9 +82,9 @@ alert('second regex works');
 		}
 	}
 	
-AZLyricSource.method('getLyrics', function () { 
-					return this.lyrics; 
-					});
+//AZLyricSource.method('getLyrics', function () { 
+//					return this.lyrics; 
+//					});
 	
 AZLyricSource.method('hasLyrics', function () {
 					return this.lyrics.length != 0;
