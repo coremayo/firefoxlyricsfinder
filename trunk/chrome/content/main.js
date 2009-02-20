@@ -148,3 +148,41 @@ function DarkLyricsSource(songName, artistName)  {
 	DarkLyricsSource.method('getSourceURL', function () {
 	return this.sourceURL;
 	});
+
+//following functions are for unit testing. Run in XML. test page is google for first three.
+
+function testgetPage(){
+	expectedText = "<html>";
+	tempText = getPage("http://www.google.com/");
+	testText = tempText.split(">", 4);
+	if(expectedText = testText){
+		alert("pass");
+	}
+	else{
+		alert("fail");
+	}
+}
+
+
+function testgetLastFMSongArtist(){
+	expectedText = "Google";
+	tempText = getLastFMSongArtist();
+	if(expectedText = tempText){
+		alert("pass");
+		}
+	else{
+		alert("fail");
+	}
+}
+
+function testgetLastFMSongName(){
+	expectedText = "Mozilla Firefox";
+	tempText = getLastFMSongName();
+	if(expectedText = tempText){
+		alert("pass");
+		}
+	else{
+		alert("fail");
+	}
+}
+
