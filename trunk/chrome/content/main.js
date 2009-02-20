@@ -21,9 +21,7 @@ ILyricSource.method('getSourceURL', function () {
 					});
 // Assuming the current tab in firefox is some page on last.fm with a song playing, this function grabs the song title and artist from the title tag and sets the respective labels in the sidebar to those values.
 		function updateLyrics() {
-			//var songTitle = 'shellshock';
 			var songTitle = getLastFMSongName();
-			//var artistName = 'tank';
 			var artistName = getLastFMSongArtist();
 			var lyricSrc = new AZLyricSource(songTitle,artistName);
 			if (lyricSrc.lyrics.length < 5) {
