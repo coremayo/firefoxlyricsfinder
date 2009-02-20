@@ -2,6 +2,18 @@
 
 These are the unit testing results for the Lyric Finder extension
 
-getPage 			- Pass
+getPage 		- Pass
 getLastFMSongTitle	- Pass
 getLastFMSongArtist	- Pass
+
+AZLyricSource		- Pass
+DarkLyricsSource	- Pass
+
+For the first three functions listed, we hardcoded test cases, which can be seen in our source code.
+
+For the functions that parsed the AZLyrics and DarkLyrics sites, we used JSCoverage Test Framework, which 
+allows us to track executed lines of code in our main.js file. We made a simple html page and called the 
+functions, passing as parameters a song title and artist that is valid on each site. We are able to conclude 
+the tests passed, as the JSCoverage interface showed that the lines of code in the functions that were executed 
+did indeed correspond exactly with a successful run of the function. See the screenshots in the .doc file included 
+in the zip package for a more detailed look.
