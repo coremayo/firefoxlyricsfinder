@@ -1,0 +1,7 @@
+
+
+These are the unit testing results for the Lyric Finder extension
+
+getPage 			- Pass
+getLastFMSongTitle	- Pass
+getLastFMSongArtist	- Pass

@@ -12,6 +12,12 @@
 		<label id="songTitleLabel" value="Song Title" control="songTitleTextbox" />
 		<textbox multiline="true" rows="20" wrap="off" readonly="true" id="lyricsTextbox" />
 		<button id="updateButton" label="Update Song" oncommand="updateLyrics();" />
+		<!-- These functions are for running Unit Testing
+	        <button id="test1Button" label="Test 1" oncommand="testgetLastFMSongName();"/>
+		<button id="test2Button" label="Test 2" oncommand="testgetLastFMSongArtist();"/>
+		<button id="test3Button" label="Test 3" oncommand="testgetPage();"/>
+		-->
+		
   </vbox>
 	
 	
