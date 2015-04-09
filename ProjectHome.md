@@ -1,0 +1,1 @@
+Firefox Lyrics Finder is a browser extension that downloads and displays song lyrics for songs that are currently playing on last.fm and Pandora.
